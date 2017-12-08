@@ -27,17 +27,17 @@ render() {
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem >
-                            <NavLink href="/about">Blog</NavLink>
+                            <NavLink href="/Blog">Blog</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/albums">Galerias</NavLink>
+                            <NavLink href="/Galeria">Galeria</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/albums">Ubicacion</NavLink>
+                            <NavLink href="/Ubicacion">Ubicacion</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="/contact/hervin/cardona">Contacto</NavLink>
-                            <NavLink href="/contact/mozafar/haider">Contact another</NavLink>
+                            <NavLink href="/contact/mozafar/haider"> Otro Contacto</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>

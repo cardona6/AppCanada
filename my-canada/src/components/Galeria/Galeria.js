@@ -2,22 +2,25 @@ import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 
 
-const Galeria = (props) => {
+
+const Galeria = () => {
     return (
         <div>
-            <Jumbotron>
-            <h1 className="display-3">Galeria</h1>
-            <p className="lead">copy --- @ hotmail.com</p>
+            <div>
+            <h1 className="display-3">Galerias</h1>
+            <p className="lead">Todos los estudiantes</p>
             <hr className="my-2" />
-            <p>Source: Spotify</p>
-            <p className="lead">
             <Button color="primary">Learn More</Button>
+          </div>
+        <did>
+            <h1>Este es el primer programa en español</h1>
+            <p>Estoy aprendiendo a crear sistema y paginas Wed y todo lo estoy haciendo en ingles 
+               es muy divertido y me encanta programar
             </p>
-        </Jumbotron>
+        </did>
         
         </div>
     );
 
 }
-
 export default Galeria;
