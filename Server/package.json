@@ -1,0 +1,21 @@
+{
+  "name": "hervin",
+  "version": "1.0.0",
+  "description": "esta app es para el colegio canada",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "cardona6"
+  },
+  "author": "hervin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-formidable": "^1.0.0",
+    "express-handlebars": "^3.0.0"
+  }
+}
