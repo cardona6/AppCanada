@@ -30,16 +30,16 @@ router.get('/say-hello/:name/:lastName', function (req, res, next) {
     res.send(sayhello);
 });
 
-router.get('/products', (req, res) => {
+router.get('/', (req, res) => {
     res.send("hola mundo");
 });
 
-router.post('/products', (req, res) => {
+router.post('/', (req, res) => {
     const Product = req.body;
     res.send(' I received ' + Product.title);
 });
 
-router.delete('/products', (req, res) => {
+router.delete('/', (req, res) => {
     res.send("I have delete");
 });
 /* GET single-product information page. */

@@ -19,7 +19,7 @@ const Galeria = () => {
                es muy divertido y me encanta programar
             </p>
         </did>
-        
+        <a>'https://www.linkedin.com/notifications/'</a>
           
         </div>
     );
