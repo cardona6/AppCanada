@@ -1,0 +1,58 @@
+<div class="container">      
+    <div class="row">
+    <div class="w3-container w3-green">
+  <h1>Welcome at connnetion the Express and Node.js in MongoDB</h1> 
+</div>
+
+<div class="w3-row-padding">
+  <div class="w3-third">
+    <h2>Mongodb</h2>
+    <p>MongoDB is a free and open-source cross-platform document-oriented database
+       program.</p>
+    <p> Classified as a NoSQL database program, MongoDB uses JSON-like documents
+        with schemata. MongoDB is developed by MongoDB Inc., and is published under
+       a combination of the GNU Affero General Public License and the Apache License.</p>
+  </div>
+
+  <div class="w3-third">
+    <h2>Node.js</h2>
+    <p>Node.js is an open-source, cross-platform JavaScript run-time environment that executes 
+      JavaScript code outside the browser.</p> 
+    <p> Historically, JavaScript was used primarily for 
+      client-side scripting, in which scripts written in JavaScript are embedded in a webpage's
+       HTML and run client-side by a JavaScript engine in the user's web browser.</p>
+  </div>
+
+  <div class="w3-third">
+    <h2>Express</h2>
+    <p>The Express philosophy is to provide small, robust tooling for HTTP servers,.</p>
+    <p>making it a great solution for single page applications, web sites, hybrids, or public HTTP APIs.
+      Express does not force you to use any specific ORM or template engine. 
+      With support for over 14 template engines via Consolidate.js, you can quickly craft your 
+      perfect framework.</p>
+  </div>
+</div>
+    <a href="/persona/nuevo" class="btn btn-primary">Nuevo</a>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+            <th>Pais</th>
+            <th colspan="2">Operación</th>
+        </tr>
+        </thead>
+        {{#each personas}}
+          <tr>
+            <td>{{this.nombres}}</td> 
+            <td>{{this.apellidos}}</td>
+            <td>{{this.edad}}</td>
+            <td>{{this.pais}}</td>
+            <td><a href="/persona/modificar/{{this._id}}">Modificar</a></td> 
+            <td><a href="/persona/eliminar/{{this._id}}">Eliminar</a></td> 
+          </tr>          
+       {{/each}}   
+      </table>
+    </div>
+</div>

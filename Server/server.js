@@ -1,32 +1,45 @@
 const express = require("express");
-//const apiRouter = require("./api");
-const formidable = require("express-formidable");
-// const exphbs = require("express-handlebars");
- var fs = require('fs');
+let path = require('path');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
+
+
+let index = require('./routes/index');
+//let personaForm = require('./routes/personaForm');
+
 const app = express();
 
 
-// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 
- app.use(formidable());
- app.set('view engine', 'ejs');
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/", function(req, res) {
-    res.render('index', {
-      Content: "Hola Express and <em>Ejs</em>! y todo esta hecho por hervin"
-    });
-  });
+app.use('/', index);
+// app.use('/personaForm', personaForm);
 
-// app.use('/api', apiRouter);
- app.use(express.static("public"));
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
 
+// error handler
+app.use(function(err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-app.get("/about", (req, res) => {
-  fs.readFile('./about.html', (err, data)=>{
-    res.send(data.toString());
-  });
-  });
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+});
 
 app.listen(3000, function() {
   console.log("Server is listening on port 3000. Ready to accept requests!");
