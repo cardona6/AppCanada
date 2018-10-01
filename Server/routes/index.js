@@ -18,20 +18,33 @@ router.get('/cliente/nuevo', (req, res, next) => {
     res.render('clienteForm', {});
 });
 
-router.get('/admin', function (req, res) {
-    res.render('admin');
+router.get('/listaClientes', function (req, res) {
+    res.render('listaClientes');
+});
+
+router.get('/about', function (req, res) {
+    res.render('about');
 });
 
 router.get('/contact', function (req, res) {
     res.render('contact');
 });
 
+router.get('/home', function (req, res) {
+    res.render('home');
+});
+
+router.get('/conten', function (req, res) {
+    res.render('conten');
+});
+
+
 router.get('/cliente/modificar/:id', (req, res, next) => {
     let idcliente = req.params.id;
     cliente.findOne({ _id: idcliente }, (err, cliente) => {
         //console.log(persona);
         if (err) throw err;
-        res.render('clinteForm', { cliente: cliente });
+        res.render('clienteForm', { cliente: cliente });
     });
 });
 

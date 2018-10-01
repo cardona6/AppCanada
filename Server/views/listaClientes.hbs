@@ -1,0 +1,26 @@
+</div>
+    <a href="/cliente/nuevo" class="btn btn-primary">Nuevo</a>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+            <th>Pais</th>
+            <th colspan="2">Operación</th>
+        </tr>
+        </thead>
+        {{#each clientes}}
+          <tr>
+            <td>{{this.nombres}}</td> 
+            <td>{{this.apellidos}}</td>
+            <td>{{this.edad}}</td>
+            <td>{{this.pais}}</td>
+            <td><a href="/cliente/modificar/{{this._id}}">Modificar</a></td> 
+            <td><a href="/cliente/eliminar/{{this._id}}">Eliminar</a></td> 
+          </tr>          
+       {{/each}}   
+      </table>
+    </div>
+    <a href="/" class="btn btn-danger">Cancelar</a>
+</div>

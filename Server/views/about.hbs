@@ -31,28 +31,4 @@
       With support for over 14 template engines via Consolidate.js, you can quickly craft your 
       perfect framework.</p>
   </div>
-</div>
-    <a href="/persona/nuevo" class="btn btn-primary">Nuevo</a>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Edad</th>
-            <th>Pais</th>
-            <th colspan="2">Operación</th>
-        </tr>
-        </thead>
-        {{#each personas}}
-          <tr>
-            <td>{{this.nombres}}</td> 
-            <td>{{this.apellidos}}</td>
-            <td>{{this.edad}}</td>
-            <td>{{this.pais}}</td>
-            <td><a href="/persona/modificar/{{this._id}}">Modificar</a></td> 
-            <td><a href="/persona/eliminar/{{this._id}}">Eliminar</a></td> 
-          </tr>          
-       {{/each}}   
-      </table>
-    </div>
-</div>
+  <a href="/" class="btn btn-danger">Cancelar</a>
