@@ -1,18 +1,19 @@
 let express = require('express');
 let router = express.Router();
 
-let mongoose = require('./../config/conexion');
-let Cliente = require('./../models/cliente');
-
-
 /* GET home page. */
-router.get('/', (req, res, next) => {
-    Cliente.find((err, clientes) => {
-        //console.log(personas);
-        if (err) throw err;
-        res.render('index', { clientes: clientes });
-    });
-});
+router.get('/', ensureAuthenticated, function(req, res, next) {
+    res.render('index', { title: 'Express' });
+  });
+  
+  function ensureAuthenticated(req, res, next){
+      if(req.isAuthenticated()){
+          return next();
+      } else {
+          req.flash('error_msg','You are not logged in');
+          res.redirect('/clienteForm/login');
+      }
+  }
 
 router.get('/cliente/nuevo', (req, res, next) => {
     res.render('clienteForm', {});
@@ -36,6 +37,9 @@ router.get('/home', function (req, res) {
 
 router.get('/conten', function (req, res) {
     res.render('conten');
+});
+router.get('/login', function (req, res) {
+    res.render('login');
 });
 
 
