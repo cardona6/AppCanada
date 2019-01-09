@@ -1,19 +1,17 @@
 let express = require('express');
 let router = express.Router();
 
+let Cliente = require('./../models/cliente');
+
 /* GET home page. */
-router.get('/', ensureAuthenticated, function(req, res, next) {
-    res.render('index', { title: 'Express' });
-  });
+router.get('/', (req, res, next) => {
+    Cliente.find((err, clientes) => {
+        //console.log(clientes);
+        if (err) throw err;
+        res.render('index', { clientes: clientes });
+    });
+});
   
-  function ensureAuthenticated(req, res, next){
-      if(req.isAuthenticated()){
-          return next();
-      } else {
-          req.flash('error_msg','You are not logged in');
-          res.redirect('/clienteForm/login');
-      }
-  }
 
 router.get('/cliente/nuevo', (req, res, next) => {
     res.render('clienteForm', {});
@@ -38,15 +36,13 @@ router.get('/home', function (req, res) {
 router.get('/conten', function (req, res) {
     res.render('conten');
 });
-router.get('/login', function (req, res) {
-    res.render('login');
-});
+
 
 
 router.get('/cliente/modificar/:id', (req, res, next) => {
     let idcliente = req.params.id;
-    cliente.findOne({ _id: idcliente }, (err, cliente) => {
-        //console.log(persona);
+    Cliente.findOne({ _id: idCliente }, (err, cliente) => {
+        //console.log(cliente);
         if (err) throw err;
         res.render('clienteForm', { cliente: cliente });
     });
@@ -55,7 +51,7 @@ router.get('/cliente/modificar/:id', (req, res, next) => {
 router.get('/cliente/eliminar/:id', (req, res, next) => {
     let idcliente = req.params.id;
 
-    cliente.remove({ _id: idcliente }, (err) => {
+    Cliente.remove({ _id: idCliente }, (err) => {
         if (err) throw err;
         //o llamar nuevamente a find() y res.render();
         res.redirect('/');
